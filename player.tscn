@@ -1,11 +1,28 @@
-[gd_scene load_steps=5 format=3 uid="uid://dgiwnxjxhak1b"]
+[gd_scene load_steps=8 format=3 uid="uid://dgiwnxjxhak1b"]
 
 [ext_resource type="Script" path="res://player.gd" id="1_0bkcu"]
 [ext_resource type="PackedScene" uid="uid://pbmyh1qru7p" path="res://characters/happy_boo/happy_boo.tscn" id="1_guw7g"]
 [ext_resource type="PackedScene" uid="uid://bv7nayih1xlmw" path="res://gun.tscn" id="3_6y14c"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nykm2"]
-size = Vector2(82, 105)
+size = Vector2(78, 78.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_v0epe"]
+size = Vector2(69, 95)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7hef3"]
+bg_color = Color(0.741385, 0.741385, 0.741384, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dsftd"]
+bg_color = Color(0.395586, 0.836315, 0.457541, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
 
 [node name="player" type="CharacterBody2D"]
 z_index = 2
@@ -16,11 +33,33 @@ script = ExtResource("1_0bkcu")
 position = Vector2(0, 30)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -14)
+position = Vector2(-2, -0.75)
 shape = SubResource("RectangleShape2D_nykm2")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 
 [node name="gun" parent="." instance=ExtResource("3_6y14c")]
-position = Vector2(0, 0)
+position = Vector2(-2, -1)
 rotation = 0.261799
+
+[node name="hitbox" type="Area2D" parent="."]
+unique_name_in_owner = true
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="hitbox"]
+position = Vector2(-2.5, -10.5)
+shape = SubResource("RectangleShape2D_v0epe")
+debug_color = Color(0.882809, 0.332049, 0.112696, 0.42)
+
+[node name="ProgressBar" type="ProgressBar" parent="."]
+unique_name_in_owner = true
+offset_left = -80.0
+offset_top = -102.0
+offset_right = 57.0
+offset_bottom = -73.0
+scale = Vector2(1.20163, 0.600581)
+theme_override_styles/background = SubResource("StyleBoxFlat_7hef3")
+theme_override_styles/fill = SubResource("StyleBoxFlat_dsftd")
+value = 100.0
+show_percentage = false

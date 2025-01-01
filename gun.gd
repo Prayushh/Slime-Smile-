@@ -1,4 +1,5 @@
 extends Area2D
+@onready var shootingpoint= get_node("%shootingpoint")
 
 func _process(delta):
 	# Get the mouse position relative to the gun's position
@@ -7,3 +8,15 @@ func _process(delta):
 
 	# Rotate the gun towards the mouse
 	rotation = direction.angle()
+
+func shoot():
+	const BULLET = preload("res://bullet.tscn")
+	var new_bullet=BULLET.instantiate()
+	
+	new_bullet.global_position=%shootingpoint.global_position
+	get_tree().current_scene.add_child(new_bullet)
+	new_bullet.rotation=rotation
+	
+func _input(event):
+	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
+		shoot()

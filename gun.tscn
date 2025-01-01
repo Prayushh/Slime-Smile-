@@ -21,11 +21,11 @@ shape = SubResource("CircleShape2D_trt82")
 rotation = 0.0970414
 
 [node name="Pistol" type="Sprite2D" parent="weapon pivot"]
-modulate = Color(2.162, 0, 0.541, 1)
 position = Vector2(104.563, -10.3674)
 rotation = -0.169558
 texture = ExtResource("1_dtm2m")
 
-[node name="shooting point" type="Marker2D" parent="weapon pivot/Pistol"]
+[node name="shootingpoint" type="Marker2D" parent="weapon pivot/Pistol"]
+unique_name_in_owner = true
 position = Vector2(25.5929, -9.97662)
 rotation = -0.0232959

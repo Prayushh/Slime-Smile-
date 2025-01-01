@@ -14,7 +14,7 @@ offset_left = -68.0
 offset_top = -46.0
 offset_right = 1982.0
 offset_bottom = 1119.0
-color = Color(0.10748, 0.10748, 0.10748, 1)
+color = Color(0.0923971, 0.0923971, 0.092397, 1)
 
 [node name="player" parent="." instance=ExtResource("1_o5mk2")]
 position = Vector2(755, 632)
@@ -47,3 +47,12 @@ position = Vector2(1747, 960)
 
 [node name="enemy" parent="." instance=ExtResource("3_0ahqu")]
 position = Vector2(284, 920)
+
+[node name="enemy2" parent="." instance=ExtResource("3_0ahqu")]
+position = Vector2(686, 939)
+
+[node name="enemy3" parent="." instance=ExtResource("3_0ahqu")]
+position = Vector2(241, 430)
+
+[node name="enemy4" parent="." instance=ExtResource("3_0ahqu")]
+position = Vector2(898, 142)
