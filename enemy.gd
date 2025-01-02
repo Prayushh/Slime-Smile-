@@ -1,5 +1,5 @@
 extends CharacterBody2D
-var health= 100
+var health= 150
 @onready var player= get_node("/root/game/player")
 
 func _physics_process(delta: float) -> void:
